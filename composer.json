@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
-    "name": "guestbook",
+    "name": "s1ks11/symfony-project",
     "description": "This is symfony project",
     "prefer-stable": true,
     "require": {
@@ -82,6 +82,12 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "phpunit": [
+            "bin/phpunit --colors=always"
+        ],
+        "tests": [
+            "@phpunit"
         ]
     },
     "conflict": {
