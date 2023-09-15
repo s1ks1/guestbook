@@ -9,6 +9,15 @@ name: app
 # to find the supported versions for the 'php' type.
 type: 'php:8.2'
 
+runtime:
+  extensions:
+    - pdo_pgsql
+    - pcntl
+    - posix
+
+relationships:
+  database: "database:postgresql"
+
 # The following block defines a single writable directory, 'web/uploads'
 # The 'source' specifies where the writable mount is. The 'local' source
 # indicates that the mount point will point to a local directory on the
@@ -23,13 +32,13 @@ mounts:
 disk: 2048
 
 hooks:
-    build: |
-      set -e
-    deploy: |
-      set -e
+  build: |
+    set -e
+  deploy: |
+    set -e
 
 web:
-  locations: 
-    '/': 
+  locations:
+    '/':
       root: "web"
       passthru: "/index.php"
